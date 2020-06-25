@@ -121,8 +121,8 @@ function doLookup(entities, options, cb) {
 
 function sortResultsByVersion(results) {
   return results.sort((extA, extB) => {
-    const dateA = _.get(extA, 'data.webstore.last_updated');
-    const dateB = _.get(extB, 'data.webstore.last_updated');
+    const dateA = _.get(extA, 'data.webstore.last_updated', 0);
+    const dateB = _.get(extB, 'data.webstore.last_updated', 0);
     return new Date(dateB) - new Date(dateA);
   });
 }
@@ -140,8 +140,8 @@ function findMinMaxRisk(results) {
 
   for (let i = 0; i < results.length; i++) {
     const ext = results[i];
-    const riskTotal = _.get(ext, 'data.risk.total', -1);
-    const lastUpdated = _.get(ext, 'data.risk.total', -1);
+    const riskTotal = _.get(ext, 'data.risk.total', 'N/A');
+    const lastUpdated = _.get(ext, 'data.webstore.last_updated', 'N/A');
 
     if (i === 0) {
       mostRecentExtension = ext;
