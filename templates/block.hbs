@@ -116,6 +116,7 @@
   <thead>
   <tr>
     <th class="min">Version</th>
+    <th class="min">Updated</th>
     <th class="min">Risk</th>
     <th class="t-bar"></th>
   </tr>
@@ -124,6 +125,9 @@
   {{#each (take historyLimit details.riskTable) as | riskRow |}}
     <tr>
       <td class="min"><a href="https://crxcavator.io/report/{{riskRow.extensionId}}/{{riskRow.version}}" class="p-link"> {{riskRow.version}} {{fa-icon "external-link-square" class="external-link-icon"}}</a></td>
+      <td class="min">
+        {{riskRow.lastUpdated}}
+      </td>
       <td class="min">
         {{riskRow.riskTotal}}
       </td>
