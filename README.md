@@ -8,7 +8,7 @@ The integration will return risk information for the most recent version of the 
 
 
 | ![overlay window](assets/overlay.png) | ![risk history](assets/risk-history.png) |
-|---|--}
+|---|--|
 |*CRXcavator Showing Most Recent and Max Risk Version Information* | Risk History |
 
 
