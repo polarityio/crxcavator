@@ -1,0 +1,149 @@
+{{#each details.extensions as |extension index|}}
+  {{#if (gt index 0)}}
+    <hr>
+  {{/if}}
+  <h1 class="p-title">{{fa-icon extension.__icon fixedWidth=true}} {{extension.__title}}</h1>
+
+  {{#if extension.version}}
+    <div>
+        <span class="p-key">Version: </span>
+        <a href="https://crxcavator.io/report/{{extension.extension_id}}/{{extension.version}}" class="p-link"> {{extension.version}} {{fa-icon "external-link-square" class="external-link-icon"}}</a>
+    </div>
+  {{/if}}
+  {{#if extension.data.risk.total}}
+    <div>
+        <span class="p-key">Risk Total: </span>
+        <span class="p-value">{{extension.data.risk.total}}</span>
+    </div>
+  {{/if}}
+  {{#if extension.data.risk.csp.total}}
+    <div>
+        <span class="p-key">CSP Risk Total: </span>
+        <span class="p-value">{{extension.data.risk.csp.total}}</span>
+    </div>
+  {{/if}}
+  {{#if extension.data.risk.extcalls.total}}
+    <div>
+        <span class="p-key">External Calls Risk Total: </span>
+        <span class="p-value">{{extension.data.risk.extcalls.total}}</span>
+    </div>
+  {{/if}}
+  {{#if extension.data.risk.permissions.total}}
+    <div>
+        <span class="p-key">Permissions Risk Total: </span>
+        <span class="p-value">{{extension.data.risk.permissions.total}}</span>
+    </div>
+  {{/if}}
+  {{#if extension.data.risk.optional_permissions.total}}
+    <div>
+        <span class="p-key">Optional Permissions Risk Total: </span>
+        <span class="p-value">{{extension.data.risk.optional_permissions.total}}</span>
+    </div>
+  {{/if}}
+  {{#if extension.data.risk.retire.total}}
+    <div>
+        <span class="p-key">Retire Risk Total: </span>
+        <span class="p-value">{{extension.data.risk.retire.total}}</span>
+    </div>
+  {{/if}}
+  {{#if extension.data.risk.webstore.total}}
+    <div>
+        <span class="p-key">Webstore Risk Total: </span>
+        <span class="p-value">{{extension.data.risk.webstore.total}}</span>
+    </div>
+  {{/if}}
+  {{#if extension.data.webstore.name}}
+    <div>
+        <span class="p-key">Extension Name: </span>
+        <span class="p-value">{{extension.data.webstore.name}}</span>
+    </div>
+  {{/if}}
+  {{#if extension.data.webstore.last_updated}}
+    <div>
+        <span class="p-key">Last Updated: </span>
+        <span class="p-value">{{extension.data.webstore.last_updated}}</span>
+    </div>
+  {{/if}}
+  {{#if extension.data.webstore.offered_by}}
+    <div>
+        <span class="p-key">Offered By: </span>
+        <span class="p-value">{{extension.data.webstore.offered_by}}</span>
+    </div>
+  {{/if}}
+  {{#if extension.data.webstore.email}}
+    <div>
+        <span class="p-key">Email: </span>
+        <span class="p-value">{{extension.data.webstore.email}}</span>
+    </div>
+  {{/if}}
+  {{#if extension.data.webstore.short_description}}
+    <div>
+        <span class="p-key">Short Description: </span>
+        <span class="p-value description">{{extension.data.webstore.short_description}}</span>
+    </div>
+  {{/if}}
+  {{#if extension.data.webstore.rating}}
+    <div>
+        <span class="p-key">Rating: </span>
+        <span class="p-value">{{extension.data.webstore.rating}}</span>
+    </div>
+  {{/if}}
+  {{#if extension.data.webstore.size}}
+    <div>
+        <span class="p-key">Size: </span>
+        <span class="p-value">{{extension.data.webstore.size}}</span>
+    </div>
+  {{/if}}
+  {{#if extension.data.webstore.users}}
+    <div>
+        <span class="p-key">Users: </span>
+        <span class="p-value">{{extension.data.webstore.users}}</span>
+    </div>
+  {{/if}}
+  {{#if extension.data.webstore.type}}
+    <div>
+        <span class="p-key">Type: </span>
+        <span class="p-value">{{extension.data.webstore.type}}</span>
+    </div>
+  {{/if}}
+{{/each}}
+
+<hr>
+
+{{!-- Risk Table --}}
+<h1 class="p-title">{{fa-icon "history" fixedWidth=true}} Risk History (showing {{historyLimit}} of {{details.riskTable.length}} versions)</h1>
+<table class="p-table">
+  <thead>
+  <tr>
+    <th class="min">Version</th>
+    <th class="min">Updated</th>
+    <th class="min">Risk</th>
+    <th class="t-bar"></th>
+  </tr>
+  </thead>
+  <tbody>
+  {{#each (take historyLimit details.riskTable) as | riskRow |}}
+    <tr>
+      <td class="min"><a href="https://crxcavator.io/report/{{riskRow.extensionId}}/{{riskRow.version}}" class="p-link"> {{riskRow.version}} {{fa-icon "external-link-square" class="external-link-icon"}}</a></td>
+      <td class="min">
+        {{riskRow.lastUpdated}}
+      </td>
+      <td class="min">
+        {{riskRow.riskTotal}}
+      </td>
+      <td>
+        <div class="progress p-0">
+          <div class="progress-bar" style="width:{{riskRow.riskPercentage}}%"></div>
+        </div>
+      </td>
+    </tr>
+  {{/each}}
+  </tbody>
+</table>
+<div class="mt-2">
+  {{#if viewFullRiskHistory}}
+    <span class="p-action" {{action "toggleRiskHistory"}}>Hide full risk history</span> {{fa-icon "caret-up" fixedWidth=true}}
+  {{else}}
+    <span class="p-action" {{action "toggleRiskHistory"}}>View full risk history</span> {{fa-icon "caret-down" fixedWidth=true}}
+  {{/if}}
+</div>
