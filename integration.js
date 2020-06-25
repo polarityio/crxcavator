@@ -168,9 +168,12 @@ function findMinMaxRisk(results) {
     row.riskPercentage = (row.riskTotal / maxRisk) * 100;
   });
 
-  minRiskExtension.__title = 'Minimum Risk Version Scan';
-  maxRiskExtension.__title = 'Maximum Risk Version Scan';
-  mostRecentExtension.__title = 'Most Recent Version Scan';
+  minRiskExtension.__title = 'Minimum Risk Version';
+  minRiskExtension.__icon = 'temperature-down';
+  maxRiskExtension.__title = 'Maximum Risk Version';
+  maxRiskExtension.__icon = 'temperature-up';
+  mostRecentExtension.__title = 'Most Recent Version';
+  mostRecentExtension.__icon = 'info';
 
   keyExtensions.push(mostRecentExtension);
 
@@ -178,17 +181,17 @@ function findMinMaxRisk(results) {
     minRiskExtension.version === maxRiskExtension.version &&
     minRiskExtension.version === mostRecentExtension.version
   ) {
-    mostRecentExtension.__title = 'Most Recent & Max Risk Version Scan';
+    mostRecentExtension.__title = 'Most Recent & Max Risk Version';
   } else {
     if (mostRecentExtension.version === maxRiskExtension.version) {
-      mostRecentExtension.__title = 'Most Recent & Max Risk Version Scan';
+      mostRecentExtension.__title = 'Most Recent & Max Risk Version';
     } else {
       // most recent is not the same as max
       keyExtensions.push(maxRiskExtension);
     }
 
     if (minRiskExtension.version === mostRecentExtension.version) {
-      mostRecentExtension.__title = 'Most Recent & Minimum Risk Version Scan';
+      mostRecentExtension.__title = 'Most Recent & Minimum Risk Version';
     } else {
       keyExtensions.push(minRiskExtension);
     }
@@ -206,7 +209,7 @@ function findMinMaxRisk(results) {
 function reduceResultData(results) {
   let reducedResults = [];
   for (let i = 0; i < results.length && i < MAX_RESULTS_TO_RETURN; i++) {
-    reducedResults.push(_.pick(results[i], ['__title', 'version', 'extension_id', 'data.risk', 'data.webstore']));
+    reducedResults.push(_.pick(results[i], ['__title', '__icon', 'version', 'extension_id', 'data.risk', 'data.webstore']));
   }
   return reducedResults;
 }
