@@ -1,0 +1,55 @@
+{
+  "name": "CRXcavator",
+  "acronym": "CRX",
+  "onDemandOnly": true,
+  "description": "CRXcavator is an automated Chrome extension security assessment tool that assigns risk scores to extensions based on an objective set of criteria.",
+  "customTypes": [
+    {
+      "key": "extensionID",
+      "regex": "[a-z]{32}"
+    }
+  ],
+  "styles": [
+    "./styles/style.less"
+  ],
+  "block": {
+    "component": {
+      "file": "./components/block.js"
+    },
+    "template": {
+      "file": "./templates/block.hbs"
+    }
+  },
+  "request": {
+    "cert": "",
+    "key": "",
+    "passphrase": "",
+    "ca": "",
+    "proxy": "",
+    "rejectUnauthorized": true
+  },
+  "logging": {
+    "level": "info"
+  },
+  "options": [
+    {
+      "key": "url",
+      "name": "Base URL for the CRXcavator REST API",
+      "description": "The base URL for the CRXcavator REST API including the schema (i.e., https://).  The default value is `https://api.crxcavator.io/v1`.",
+      "type": "text",
+      "default": "https://api.crxcavator.io/v1",
+      "userCanEdit": false,
+      "adminOnly": true
+    },
+    {
+      "key": "apiKey",
+      "name": "API Key",
+      "description": "Valid CRXcavator API Key",
+      "default": "",
+      "type": "password",
+      "userCanEdit": true,
+      "adminOnly": false
+    }
+  ],
+  "entityTypes": []
+}
