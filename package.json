@@ -1,11 +1,11 @@
 {
-  "main": "./integration.js",
   "name": "crxcavator",
-  "version": "3.0.0-beta",
+  "version": "3.0.1-beta",
+  "main": "./integration.js",
   "private": true,
   "dependencies": {
     "request": "^2.88",
     "async": "^3.2.0",
-    "lodash":  "^4.17.15"
+    "lodash": "^4.17.15"
   }
 }
