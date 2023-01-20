@@ -9,9 +9,8 @@
       "regex": "[a-z]{32}"
     }
   ],
-  "styles": [
-    "./styles/style.less"
-  ],
+  "defaultColor": "light-pink",
+  "styles": ["./styles/style.less"],
   "block": {
     "component": {
       "file": "./components/block.js"
