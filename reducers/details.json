@@ -1,0 +1,51 @@
+{
+  "root": {
+    "path": "",
+    "on_null": "return_empty"
+  },
+  "pipeline": [
+    {
+      "op": "copy",
+      "from": "extensions[].data.risk.total",
+      "to": "reduced_results.extensions_risk_total"
+    },
+    {
+      "op": "copy",
+      "from": "extensions[].data.webstore.name",
+      "to": "reduced_results.extensions_webstore_name"
+    },
+    {
+      "op": "copy",
+      "from": "riskTable[].riskTotal",
+      "to": "reduced_results.risk_table_risk_total"
+    },
+    {
+      "op": "copy",
+      "from": "extensions[].version",
+      "to": "reduced_results.extensions_version"
+    },
+    {
+      "op": "copy",
+      "from": "extensions[].data.risk.csp.total",
+      "to": "reduced_results.extensions_csp_total"
+    },
+    {
+      "op": "copy",
+      "from": "extensions[].data.risk.permissions.total",
+      "to": "reduced_results.extensions_permissions_total"
+    },
+    {
+      "op": "copy",
+      "from": "extensions[].data.webstore.short_description",
+      "to": "reduced_results.extensions_short_description"
+    },
+    {
+      "op": "prune",
+      "strategy": "empty_values",
+      "target": "reduced_results"
+    }
+  ],
+  "output": {
+    "result": "$working.reduced_results"
+  }
+}

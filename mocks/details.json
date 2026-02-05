@@ -1,0 +1,144 @@
+{
+  "total": 156,
+  "maxRisk": 485,
+  "riskTable": [
+    {
+      "version": "2.4.1",
+      "riskTotal": 485,
+      "lastUpdated": "2024-01-15T10:30:00.000Z",
+      "extensionId": "cjpalhdlnbpafiamejdnhcphjbkeiagm",
+      "riskPercentage": 100
+    },
+    {
+      "version": "2.4.0",
+      "riskTotal": 478,
+      "lastUpdated": "2023-12-20T14:22:00.000Z",
+      "extensionId": "cjpalhdlnbpafiamejdnhcphjbkeiagm",
+      "riskPercentage": 98.5
+    },
+    {
+      "version": "2.3.5",
+      "riskTotal": 445,
+      "lastUpdated": "2023-11-10T08:15:00.000Z",
+      "extensionId": "cjpalhdlnbpafiamejdnhcphjbkeiagm",
+      "riskPercentage": 91.7
+    }
+  ],
+  "extensions": [
+    {
+      "__title": "Most Recent & Max Risk Version",
+      "__icon": "temperature-up",
+      "version": "2.4.1",
+      "extension_id": "cjpalhdlnbpafiamejdnhcphjbkeiagm",
+      "data": {
+        "risk": {
+          "total": 485,
+          "csp": {
+            "total": 120,
+            "unsafe_eval": 50,
+            "unsafe_inline": 70
+          },
+          "permissions": {
+            "total": 200,
+            "high_risk": ["tabs", "webRequest", "cookies"],
+            "medium_risk": ["storage", "notifications"]
+          },
+          "extcalls": {
+            "total": 85,
+            "domains": ["analytics.google.com", "cdn.example.com"]
+          },
+          "retire": {
+            "total": 30,
+            "vulnerabilities": 2
+          },
+          "webstore": {
+            "total": 50
+          },
+          "optional_permissions": {
+            "total": 0
+          }
+        },
+        "webstore": {
+          "name": "uBlock Origin",
+          "short_description": "An efficient blocker: easy on memory and CPU footprint, yet can load and enforce thousands of filters.",
+          "last_updated": "2024-01-15T10:30:00.000Z",
+          "offered_by": "Raymond Hill",
+          "email": "support@example.com",
+          "rating": 4.8,
+          "rating_count": 125000,
+          "users": "10,000,000+",
+          "size": "4.5MB",
+          "type": "Extension",
+          "website": "https://github.com/gorhill/uBlock",
+          "privacy_policy": "https://github.com/gorhill/uBlock/wiki/Privacy-policy"
+        }
+      },
+      "raw_manifest": {
+        "manifest_version": 3,
+        "permissions": ["tabs", "webRequest", "storage"]
+      },
+      "analysis_metadata": {
+        "scan_date": "2024-01-15T10:45:00.000Z",
+        "scan_duration_ms": 1250
+      }
+    },
+    {
+      "__title": "Minimum Risk Version",
+      "__icon": "temperature-down",
+      "version": "1.0.0",
+      "extension_id": "cjpalhdlnbpafiamejdnhcphjbkeiagm",
+      "data": {
+        "risk": {
+          "total": 125,
+          "csp": {
+            "total": 30,
+            "unsafe_eval": 0,
+            "unsafe_inline": 30
+          },
+          "permissions": {
+            "total": 50,
+            "high_risk": [],
+            "medium_risk": ["storage"]
+          },
+          "extcalls": {
+            "total": 25,
+            "domains": ["analytics.google.com"]
+          },
+          "retire": {
+            "total": 0,
+            "vulnerabilities": 0
+          },
+          "webstore": {
+            "total": 20
+          },
+          "optional_permissions": {
+            "total": 0
+          }
+        },
+        "webstore": {
+          "name": "uBlock Origin",
+          "short_description": "An efficient blocker: easy on memory and CPU footprint.",
+          "last_updated": "2019-03-05T12:00:00.000Z",
+          "offered_by": "Raymond Hill",
+          "email": "support@example.com",
+          "rating": 4.6,
+          "rating_count": 5000,
+          "users": "100,000+",
+          "size": "2.1MB",
+          "type": "Extension",
+          "website": "https://github.com/gorhill/uBlock"
+        }
+      }
+    }
+  ],
+  "summary_statistics": {
+    "average_risk": 385,
+    "median_risk": 390,
+    "risk_trend": "increasing"
+  },
+  "metadata": {
+    "query_timestamp": "2024-01-16T02:43:00.000Z",
+    "api_version": "v1",
+    "cache_hit": false
+  }
+}

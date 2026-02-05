@@ -11,7 +11,9 @@
     }
   ],
   "defaultColor": "light-pink",
-  "styles": ["./styles/style.less"],
+  "styles": [
+    "./styles/style.less"
+  ],
   "block": {
     "component": {
       "file": "./components/block.js"
@@ -50,5 +52,10 @@
       "adminOnly": false
     }
   ],
-  "entityTypes": []
+  "entityTypes": [],
+  "reducer": {
+    "details": {
+      "file": "./reducers/details.json"
+    }
+  }
 }
